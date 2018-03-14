@@ -1,0 +1,21 @@
+<div class="jumbotron">
+    <h1 class="text-center">Alurapic</h1>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <form action="">
+            <div class="input-group">
+                <span class="input-group-btn">
+                    <a href="fotos/new" class="btn btn-primary">Cadastrar nova foto</a>
+                </span>
+                <input type="text" class="form-control" placeholder="Filtrar fotos" ng-model="filtro" ng-model-options="{debounce:500}" autofocus>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="row">
+    <animal-panel class="col-md-2 fade-in" ng-repeat="foto in fotos | filter:filtro" titulo="{{foto.titulo}}">
+        <animal-foto url="{{foto.url}}" titulo="{{foto.titulo}}"></animal-foto>
+    </animal-panel>
+    <!-- fim do panel -->
+</div>
