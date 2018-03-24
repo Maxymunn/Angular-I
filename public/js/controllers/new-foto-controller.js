@@ -5,7 +5,8 @@ angular.module('alurapic').controller('NewFotoController', function($scope, $htt
 
     $scope.enviar = function () {
         if ($scope.formulario.$valid) {
-            /* var promise =  */$http.post('v1/fotos', $scope.foto)
+            /* var promise =  */
+            $http.post('v1/fotos', $scope.foto)
             
             .then(function () {
                 $scope.foto = {};
