@@ -1,6 +1,7 @@
 <div class="jumbotron">
     <h1 class="text-center">Alurapic</h1>
 </div>
+<p ng-show="mensagem.length" class="alert alert-info">{{mensagem}}</p>
 <div class="row">
     <div class="col-md-12">
         <form action="">
@@ -16,6 +17,9 @@
 <div class="row">
     <animal-panel class="col-md-2 fade-in" ng-repeat="foto in fotos | filter:filtro" titulo="{{foto.titulo}}">
         <animal-foto url="{{foto.url}}" titulo="{{foto.titulo}}"></animal-foto>
+        <a href="fotos/edit/{{foto._id}}" class="btn btn-primary btn-block">Editar</a>
+        <!-- <button ng-click="remove(foto)" class="btn-danger btn btn-block">Remover</button> -->
+        <botao-danger action="remove(foto)" name="Remover"></botao-danger>
     </animal-panel>
     <!-- fim do panel -->
 </div>

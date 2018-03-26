@@ -1,4 +1,4 @@
-angular.module('alurapic', ['MyDirectives', 'ngAnimate', 'ngRoute'])
+angular.module('alurapic', ['MyDirectives', 'ngAnimate', 'ngRoute', 'ngResource'])
     .config(function ($routeProvider, $locationProvider) {
         
         //activate html5 mode to take out # from URL
@@ -11,6 +11,10 @@ angular.module('alurapic', ['MyDirectives', 'ngAnimate', 'ngRoute'])
             controller: 'FotosController'
         })
         .when('/fotos/new',{
+            templateUrl: 'partials/createFoto.html',
+            controller: 'NewFotoController'
+        })
+        .when('/fotos/edit/:fotoId', {
             templateUrl: 'partials/createFoto.html',
             controller: 'NewFotoController'
         })

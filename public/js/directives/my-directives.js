@@ -29,3 +29,17 @@ angular.module('MyDirectives', [])
 
         return DDO;
     })
+    .directive('botaoDanger', function(){
+        var DDO = {};
+
+        DDO.restric = 'E';
+
+        DDO.scope = {
+            name: '@',
+            action: '&'
+        };
+
+        DDO.template = '<button ng-click="action(foto)" class="btn-danger btn btn-block">{{name}}</button>';
+
+        return DDO;
+    })
