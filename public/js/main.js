@@ -1,4 +1,4 @@
-angular.module('alurapic', ['MyDirectives', 'ngAnimate', 'ngRoute', 'ngResource'])
+angular.module('alurapic', ['MyDirectives', 'ngAnimate', 'ngRoute', 'services'])
     .config(function ($routeProvider, $locationProvider) {
         
         //activate html5 mode to take out # from URL
