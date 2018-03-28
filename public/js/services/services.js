@@ -10,9 +10,41 @@ angular.module('services', ['ngResource'])
 
         var service = {};
 
-        service.save = function(promise){
+        service.save = function(foto){
             return $q(function(resolve, reject){
-                
+                if (foto._id) {
+                    resourceFoto.update({ fotoId: foto._id }, foto,
+                        //.then
+                        function(){
+                            resolve({
+                                mensagem : 'A foto ' + foto.titulo + ' foi alterada com sucesso!',
+                                inclusao : false,
+                            })
+                        },
+                        //.catch
+                        function(error){
+                            console.error(error);
+                            reject({
+                                mensagem : 'Não foi possível alterar a foto ' + foto.titulo + '!'
+                            })
+                        });
+                } else {
+                    resourceFoto.save(foto,
+                        //.then
+                        function() {
+                            resolve({
+                                mensagem : 'Foto ' + foto.titulo + ' incluida com sucesso!',
+                                inclusao : true,
+                            })
+                        },
+                        //.catch
+                        function(error){
+                            console.error(error);
+                            reject({
+                                mensagem : 'Não foi possivel incluir a foto!'
+                            })
+                        });
+                }
             })
         };
         return service;
