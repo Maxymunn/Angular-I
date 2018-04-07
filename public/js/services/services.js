@@ -6,7 +6,7 @@ angular.module('services', ['ngResource'])
             }
         }); 
     })
-    .factory('saveFoto', function(resourceFoto, $q){
+    .factory('saveFoto', function(resourceFoto, $q, $rootScope){
 
         var service = {};
 
@@ -32,6 +32,7 @@ angular.module('services', ['ngResource'])
                     resourceFoto.save(foto,
                         //.then
                         function() {
+                            $rootScope.$broadcast('saveFoto');
                             resolve({
                                 mensagem : 'Foto ' + foto.titulo + ' incluida com sucesso!',
                                 inclusao : true,
@@ -39,6 +40,7 @@ angular.module('services', ['ngResource'])
                         },
                         //.catch
                         function(error){
+                            $rootScope.$broadcast('saveFoto');
                             console.error(error);
                             reject({
                                 mensagem : 'Não foi possivel incluir a foto!'

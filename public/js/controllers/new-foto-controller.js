@@ -45,6 +45,8 @@ angular.module('alurapic').controller('NewFotoController', function ($scope, $ro
                         $scope.foto = {};
                         $scope.formulario.$setPristine();
                     }
+                    //watch
+                    //$scope.focus = true;
                 })
                 .catch(function(error){
                     $scope.mensagem = error.mensagem;
